@@ -3,6 +3,7 @@
 A React Native contact management application built with Expo that helps you stay in touch with important contacts by providing AI-powered conversation suggestions. \
 [![AntiGhost Simulator](https://img.youtube.com/vi/LnOwAl3mIG8/0.jpg)](https://youtu.be/LnOwAl3mIG8)
 
+
 ## Features
 
 - **AI-Powered Reminders**: Get personalized conversation suggestions for contacts you haven't talked to recently
