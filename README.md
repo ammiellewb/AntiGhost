@@ -1,4 +1,4 @@
-# SpurHacks - Contact Management App
+# AntiGhost - Contact Management App
 
 A React Native contact management application built with Expo that helps you stay in touch with important contacts by providing AI-powered conversation suggestions.
 
@@ -9,14 +9,16 @@ A React Native contact management application built with Expo that helps you sta
 - **Smart Prioritization**: Automatically prioritize contacts based on how long it's been since your last conversation
 - **Quick Notes**: Add and view conversation notes for each contact
 - **Google Sign-In**: Secure authentication using Google Sign-In
+- **Real-time Database**: Powered by Convex for seamless data synchronization
 
 ## Prerequisites
 
 Before running this app, you'll need to set up the following services:
 
 1. **Perplexity AI API** - For conversation suggestions
-2. **Firebase Project** - For authentication and data storage
+2. **Firebase Project** - For authentication
 3. **Google Cloud Console** - For Google Sign-In configuration
+4. **Convex** - For backend database and real-time functionality
 
 ## Environment Setup
 
@@ -25,27 +27,31 @@ Before running this app, you'll need to set up the following services:
 Create a `.env` file in the root directory with the following variables:
 
 ```bash
-# API Keys
+# Perplexity API
 EXPO_PUBLIC_PERPLEXITY_API_KEY=your_perplexity_api_key_here
-EXPO_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key_here
+
+# Google Console API
 EXPO_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id_here
 
 # Firebase Config
+EXPO_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key_here
 EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
 EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
 EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
 EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
+
+# Convex Config
+EXPO_PUBLIC_CONVEX_URL=your_convex_deployment_url_here
 ```
 
 ### 2. Firebase Setup
 
 1. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/)
 2. Enable Authentication with Google Sign-In
-3. Create a Firestore database
-4. Download the `GoogleService-Info.plist` file and place it in the root directory
-5. Copy the configuration values to your `.env` file
+3. Download the `GoogleService-Info.plist` file and place it in the root directory
+4. Copy the configuration values to your `.env` file
 
 ### 3. Perplexity AI Setup
 
@@ -60,6 +66,22 @@ EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
 3. Enable the Google Sign-In API
 4. Create OAuth 2.0 credentials for iOS and Android
 5. Add the client ID to your `.env` file as `EXPO_PUBLIC_GOOGLE_CLIENT_ID`
+
+### 5. Convex Setup
+
+1. Install Convex CLI globally:
+   ```bash
+   npm install -g convex
+   ```
+
+2. Create a new Convex project:
+   ```bash
+   npx convex dev
+   ```
+
+3. Follow the setup wizard to create your Convex project
+4. Copy the deployment URL to your `.env` file as `EXPO_PUBLIC_CONVEX_URL`
+5. The Convex functions are already set up in the `convex/` directory
 
 ## Installation
 
@@ -92,10 +114,20 @@ EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
 
 This project uses:
 - **Expo Router** for navigation
-- **Convex** for backend database
+- **Convex** for backend database and real-time functionality
 - **Firebase** for authentication
 - **Perplexity AI** for conversation suggestions
 - **React Native Google Sign-In** for authentication
+
+### Convex Functions
+
+The app includes several Convex functions for contact management:
+- `getAllContacts` - Retrieve all contacts
+- `getRecentNotes` - Get recent conversation notes
+- `updateLastContacted` - Update last contact date
+- `updateLastConversation` - Add conversation notes
+
+These functions are located in the `convex/` directory and provide real-time data synchronization.
 
 ## Security Notes
 
@@ -103,20 +135,10 @@ This project uses:
 - The `.env` file is already included in `.gitignore`
 - All API keys are prefixed with `EXPO_PUBLIC_` to make them available in the client-side code
 - For production, consider using a more secure method for API key management
+- Convex and Firebase provide built-in security rules and authentication
 
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-If you encounter any issues or have questions, please open an issue on GitHub.
-
