@@ -1,6 +1,6 @@
 # AntiGhost - Personal Relationship Management (PRM) App
 
-A React Native PRM application built with Expo that helps you stay in touch with important contacts by providing algorithmic prioritization and AI-powered conversation suggestions. \
+A PRM built with React Native and Expo that revolutionizes how you maintain meaningful connections through intelligent algorithmic prioritization and AI-powered conversation suggestions, proactively identifying at-risk relationships before they fade. \
 [![AntiGhost Simulator](https://img.youtube.com/vi/LnOwAl3mIG8/0.jpg)](https://youtu.be/LnOwAl3mIG8)
 
 
