@@ -105,9 +105,6 @@ EXPO_PUBLIC_CONVEX_URL=your_convex_deployment_url_here
    # iOS
    npx expo run:ios
    
-   # Android
-   npx expo run:android
-   
    # Web
    npx expo start --web
    ```
@@ -121,15 +118,6 @@ This project uses:
 - **Perplexity AI** for conversation suggestions
 - **React Native Google Sign-In** for authentication
 
-### Convex Functions
-
-The app includes several Convex functions for contact management:
-- `getAllContacts` - Retrieve all contacts
-- `getRecentNotes` - Get recent conversation notes
-- `updateLastContacted` - Update last contact date
-- `updateLastConversation` - Add conversation notes
-
-These functions are located in the `convex/` directory and provide real-time data synchronization.
 
 ## Security Notes
 
@@ -139,8 +127,3 @@ These functions are located in the `convex/` directory and provide real-time dat
 - For production, consider using a more secure method for API key management
 - Convex and Firebase provide built-in security rules and authentication
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
